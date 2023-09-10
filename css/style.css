@@ -477,17 +477,17 @@ width: calc((100% - 24px * 3) / 4);
     background-color: #31D0AA;
 }
 .subscription {
+    display: flex;
     align-items: flex-end;
+    gap: 24px;
 }
 
-.subscription-label {
+.subscription-subtitle {
     color:#FFF;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    display: flex;
-    flex-direction: column;
     margin-bottom: 16px;
     
 }
@@ -498,8 +498,13 @@ width: calc((100% - 24px * 3) / 4);
     border: 1px solid #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     margin-right: 24px;
-    background:#2E2F42;
-    padding: 8px 16px;
+    padding-left: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    background-color: transparent;
     transition-property: border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -519,17 +524,20 @@ width: calc((100% - 24px * 3) / 4);
     
 }
 .subscription-button {
+    min-width: 165px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    font-family: "Roboto", sans-serif;
     color:#FFF;
-    text-align: center;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5; /* 150% */
     letter-spacing: 0.04em;
-    display: inline-flex;
+    border: none;
     padding: 8px 24px;
-    justify-content: center;
-    align-items: center;
     gap: 16px;
     border-radius: 4px;
     background: #4D5AE5;
@@ -543,6 +551,10 @@ width: calc((100% - 24px * 3) / 4);
         background-color: #404BBF;
     
 }
+.subscription-icons {
+    margin-left: 16px;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -553,9 +565,7 @@ width: calc((100% - 24px * 3) / 4);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition-property: opacity, visibility;
-    transition-duration: 500ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-open {
     opacity: 1;
@@ -572,10 +582,17 @@ width: calc((100% - 24px * 3) / 4);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);   
+    transform: translate(-50%, -50%)scale(1);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 .close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 24px;
     height: 24px;
     line-height: 0;
@@ -583,11 +600,10 @@ width: calc((100% - 24px * 3) / 4);
     top: 24px;
     right: 24px;
     background-color: #E7E9FC;
-    stroke-width: 1px;
-    stroke: rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    cursor: pointer;
     transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -601,6 +617,7 @@ width: calc((100% - 24px * 3) / 4);
 .close-button:hover, .close-button:focus {
     background-color: #404BBF;
     fill: #D9D9D9;
+    border: none;
     
 }
 
@@ -613,6 +630,10 @@ width: calc((100% - 24px * 3) / 4);
     letter-spacing: 0.02em;
     margin-bottom: 16px;
 }
+.modal-window-wrapper {
+    margin-bottom: 8px;
+}
+
 .modal-window-label {
     display: block;
     color: #8E8F99;
@@ -621,6 +642,7 @@ width: calc((100% - 24px * 3) / 4);
     line-height: 1.17;
     letter-spacing: 0.04em;
     margin-bottom: 4px;
+    display: block;
     
 }
 .modal-window-input-wrapper {
@@ -643,6 +665,8 @@ width: calc((100% - 24px * 3) / 4);
     border-radius: 4px;
     border: 1px solid rgba(46, 47, 66, 0.40);
     padding-left: 38px;
+    background-color: transparent;
+    outline: transparent;
     transition-property: border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -664,13 +688,14 @@ width: calc((100% - 24px * 3) / 4);
     border-radius: 4px;
     border: 1px solid rgba(46, 47, 66, 0.40);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: transparent;
     resize: none;
     margin-bottom: 16px;
     padding: 8px 16px;
     color: rgba(46, 47, 66, 0.40);
     font-size: 12px;
     font-weight: 400;
-    line-height: 1.16;
+    line-height: 1.17;
     letter-spacing: 0.04em;
     transition-property: border-color;
     transition-duration: 250ms;
@@ -696,11 +721,15 @@ width: calc((100% - 24px * 3) / 4);
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.40);
+    border-radius: 2px;
     cursor: pointer;
     fill: transparent;
     transition-property: border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-window-input:checked {
+    fill: #F4F4FD;
 }
 .modal-window-checkbox:checked + .modal-window-checkbox-label > .modal-window-own-checkbox {
     background-color: #404BBF;
@@ -730,16 +759,18 @@ width: calc((100% - 24px * 3) / 4);
    
 }
 .modal-window-button-sabmit  {
-    width: 169px;
+    min-width: 169px;
     height: 56px;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
+    font-family: "Roboto", sans-serif;
     padding: 16px 32px;
     gap: 10px;
     border-radius: 4px;
-    background: #4D5AE5;
+    background-color: #4D5AE5;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    border: none;
     color: #FFF;
     text-align: center;
     font-size: 16px;
@@ -749,7 +780,10 @@ width: calc((100% - 24px * 3) / 4);
     margin-top: 24px;
     cursor: pointer;
     margin: auto;
-    
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.modal-window-button-sabmit:hover, .modal-window-button-sabmit:focus {
+    background-color:  #404BBF;
+        
+}
 
