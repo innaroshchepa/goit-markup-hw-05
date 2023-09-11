@@ -604,9 +604,7 @@ width: calc((100% - 24px * 3) / 4);
     border-radius: 50%;
     padding: 0;
     cursor: pointer;
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 .close-button-icons {
@@ -616,7 +614,7 @@ width: calc((100% - 24px * 3) / 4);
 }
 .close-button:hover, .close-button:focus {
     background-color: #404BBF;
-    fill: #D9D9D9;
+    fill: #ffffff;
     border: none;
     
 }
@@ -679,8 +677,8 @@ width: calc((100% - 24px * 3) / 4);
 .modal-window-input:focus + .modal-window-icons {
     fill: #4D5AE5;
 }
-.modal-window-wrapper {
-    margin-bottom: 8px;;
+.modal-window-textarea-wrapper {
+    margin-bottom: 16px;
 }
 .modal-window-textarea {
     width: 100%;
@@ -689,6 +687,7 @@ width: calc((100% - 24px * 3) / 4);
     border: 1px solid rgba(46, 47, 66, 0.40);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background-color: transparent;
+    outline: transparent;
     resize: none;
     margin-bottom: 16px;
     padding: 8px 16px;
@@ -724,16 +723,13 @@ width: calc((100% - 24px * 3) / 4);
     border-radius: 2px;
     cursor: pointer;
     fill: transparent;
-    transition-property: border-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-window-input:checked {
-    fill: #F4F4FD;
-}
+
 .modal-window-checkbox:checked + .modal-window-checkbox-label > .modal-window-own-checkbox {
     background-color: #404BBF;
-    fill: #D9D9D9;
+    fill: #F4F4FD;
+    border: none;
     
 }
 .modal-window-checkbox:focus+.modal-window-checkbox-label>.modal-window-own-checkbox {
